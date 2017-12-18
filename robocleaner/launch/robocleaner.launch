@@ -1,0 +1,9 @@
+<launch>
+	
+	<node name="robocleaner" pkg="robocleaner" type="robocleaner" output="screen" required="true">
+		<param name="threshold" type="double" value="0.2" /> <!-- >0.12 -->
+		<param name="rotcoeff" type="double" value="0.015" />
+		<param name="rotspeed" type="double" value="1.0" />
+		<param name="drivespeed" type="double" value="0.2" />
+	</node>
+</launch>
