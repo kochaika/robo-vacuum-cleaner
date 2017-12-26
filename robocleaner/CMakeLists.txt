@@ -137,6 +137,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/lzrscnecho_node.cpp)
 add_executable(robocleaner src/robocleaner.cpp)
+add_executable(map_reader src/map_reader.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -155,7 +156,9 @@ add_executable(robocleaner src/robocleaner.cpp)
  target_link_libraries(robocleaner
    ${catkin_LIBRARIES}
 )
-
+ target_link_libraries(map_reader
+   ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############

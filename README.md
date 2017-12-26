@@ -8,15 +8,38 @@ sudo apt-get install ros-kinetic-turtlebot3-gazebo ros-kinetic-turtlebot3-simula
 
 ```
 ## Как запустить?
-Сначала установить переменную среды:
+
+Урезать дальность лидара
+```
+roscd turtlebot3_description
+sudo nano urdf/turtlebot3_burger.gazebo.xacro
+```
+```
+<range>
+          <min>0.10</min>
+          <max>0.4</max>
+```
+Указать форму робота
 ```
 export TURTLEBOT3_MODEL=burger
 ```
-После для запуска мира и модели робота:
+Модель мира и робот
 ```
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 ```
-Для запуска логики работы
+Отображение карты
+```
+rosrun rviz rviz -d `rospack find turtlebot3_slam`/rviz/turtlebot3_slam.rviz
+```
+SLAM
+```
+roslaunch turtlebot3_slam turtlebot3_slam.launch
+```
+логика работы писоса
 ```
 roslaunch robocleaner robocleaner.launch
+```
+Если хочется рулить писосом самостоятельно
+```
+roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
